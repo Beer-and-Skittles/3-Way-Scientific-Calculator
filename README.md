@@ -1,9 +1,64 @@
-# calculator
-Building a calculator with three approaches. Data Structure final project
-# 工程計算機
+# 3-Way Scientific Calculator
+A scientific calculator built through three different algorithms.
 
-* github webpage: https://github.com/oscar-shih/Final_Project
-* **頁末有技術報告未說明清楚的補充!**
+## Prerequisites
+1. **Tools and Packages**
+	* python standard library (math, time, random, argparse)
+	* numpy
+	* pygame
+
+2.  **Environments**
+	* python 3.8+ (windows.macOS.Linux均可，須有對應bash檔案）
+
+
+
+  
+## Execution
+
+1. **Scientific Calculator User Interface** ```python3 ./GUI.py```
+    *   Click buttons on screen to add operands or numbers to your input.  
+    *   Trigonometry functions are default to take radians as input
+    *   Precision was set to three digits behind the decimal point
+    *   See ```Amendable Variables``` for more details
+
+2. **Scientific Calculator Algorithms** ```python3 ./parse_tree.py```, ```python3 ./dp.py```, ```python3 ./shunting_yard.py```
+	*	Each uses algorithms of ***Parse Tree, Parse Tree + Recursion, and Shunting Yard*** respectively, see report ```技術報告.pdf``` for more details 
+
+3. **Test data generation** ```python3 ./exp_generator.py```
+	*	Generates test data of variety length and complexity: ```input.txt```
+
+4. **Bash Testing**
+	* for Windows
+		* correctness: ```bash evaluation_win.sh```
+		* time: ```bash time_evaluation_win.sh```
+	* for MacOs/Ubuntu
+		* correctness: ```bash evaluation_macOs.sh```
+		* time: ```bash time_evaluation_macOs.sh```
+
+## Amendable Variables
+
+(```python3 ./parse_tree.py```, ```python3 ./dp.py```, ```python3 ./shunting_yard.py```)
+ 
+*	Input and output filenames: go to  ```if__name__ == 'main'``` and change variable ```default``` 
+	```python 
+	parser.add_argument("--input", type=str,default='./correctness/correct_1.txt',help="Input file root")
+	parser.add_argument("--output", type=str, default='./ouput_1.txt', help="Output file root")
+	```
+*	Amend angle units: go to ```class Calculator```,```__init__``` and change ```self.angle```； ```True``` for degrees, and ```False``` for radians
+	```python
+	class Calculator
+		def __init__(self):
+			self.angle = True
+			self.rnd_to = 3
+	```
+
+*	Amend output perciion: go to ```class Calculator```,```__init__``` set ```self.rnd_to```, the default value is 3
+
+
+
+
+# 工程計算機
+此專案以三種不同的演算法建置工程計算機: ***Parse Tree, Parse Tree + Recursion, Shunting Yard***
 
 ## 安裝環境及使用套件
 1. **Tools and Packages**
